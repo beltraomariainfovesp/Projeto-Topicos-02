@@ -12,3 +12,13 @@ function addTask() {
     };
     console.log(task);
 }
+
+function getTasks() {
+    return JSON.parse(localStorage.getItem("tasks")) || [];
+}
+
+function saveTask(task) {
+    const tasks = getTasks();
+    tasks.push(task);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
